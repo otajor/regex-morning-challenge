@@ -62,3 +62,20 @@ describe('search function should', () => {
     expect(search(dict, 'no')).to.deep.equal([])
   })
 })
+
+const isValidTime = (string) => {
+  // code here
+}
+
+describe('isValidTime function should', () => {
+  it('return true for valid time in xx:xx:xx format', () => {
+    expect(isValidTime('00:30:00')).to.be.ok
+    expect(isValidTime('23:00:59')).to.be.ok
+    expect(isValidTime('03:03:03')).to.be.ok
+  })
+  it('return false for invalid time', () => {
+    expect(isValidTime('24:01:01')).to.equal(false)
+    expect(isValidTime('14:15:60')).to.equal(false)
+    expect(isValidTime('03:55:143')).to.equal(false)
+  })
+})
