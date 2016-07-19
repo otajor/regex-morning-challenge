@@ -1,5 +1,5 @@
-# regex-tutorial
-Tutorial on regular expressions for FAC8
+# regex-morning-challenge
+Morning challenge on regular expressions for FAC8
 
 ## Instructions
 
