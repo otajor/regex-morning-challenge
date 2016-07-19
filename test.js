@@ -1,6 +1,10 @@
 /* eslint-env mocha */
 const expect = require('chai').expect
 
+const isValidHex = (string) => {
+  // code here
+}
+
 describe('isValidHex should', () => {
   it('return true if given string is valid hexadecimal (3 or six letters a-f or numbers)', () => {
     expect(isValidHex('1D1f21')).to.be.ok
@@ -12,6 +16,10 @@ describe('isValidHex should', () => {
     expect(isValidHex('XYZ')).not.to.be.ok
   })
 })
+
+const isSmaller = (string) => {
+  // code here
+}
 
 describe('isSmaller (using regex.test or string.match) should', () => {
   it('return true if string is a number smaller than 55', () => {
@@ -25,6 +33,10 @@ describe('isSmaller (using regex.test or string.match) should', () => {
   })
 })
 
+const findProperNouns = (string) => {
+  // code here
+}
+
 describe('findProperNouns (using regex.exec or string.match) should', () => {
   it('return a proper noun in a given string, in an array', () => {
     const string = 'proper noun in a sentence about Paris.'
@@ -35,6 +47,10 @@ describe('findProperNouns (using regex.exec or string.match) should', () => {
     expect(findProperNouns(string2)).to.deep.equal(['Berlin', 'Rotterdam', 'Founders', 'Coders'])
   })
 })
+
+const search = (dict, string) => {
+  // code here
+}
 
 describe('search function should', () => {
   const dict = ['abacus', 'polywhirl', 'obama', 'shorts', 'frisbee', 'potato']
