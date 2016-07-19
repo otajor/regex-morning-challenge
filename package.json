@@ -1,0 +1,21 @@
+{
+  "name": "regex-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha --recursive" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oturnermajor/regex-tutorial.git"
+  },
+  "author": "oturnermajor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oturnermajor/regex-tutorial/issues"
+  },
+  "homepage": "https://github.com/oturnermajor/regex-tutorial#readme"
+}
