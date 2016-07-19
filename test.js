@@ -12,8 +12,8 @@ describe('isValidHex should', () => {
     expect(isValidHex('b0f')).to.be.ok
   })
   it('return false if given string is not valid hexadecimal', () => {
-    expect(isValidHex('obviouslyNotValid')).not.to.be.ok
-    expect(isValidHex('XYZ')).not.to.be.ok
+    expect(isValidHex('obviouslyNotValid')).to.equal(false)
+    expect(isValidHex('XYZ')).to.equal(false)
   })
 })
 
@@ -28,8 +28,8 @@ describe('isSmaller (using regex.test or string.match) should', () => {
     expect(isSmaller('25')).to.be.ok
   })
   it('return false if string is a number greater than 55', () => {
-    expect(isSmaller('56')).not.to.be.ok
-    expect(isSmaller('129')).not.to.be.ok
+    expect(isSmaller('56')).to.equal(false)
+    expect(isSmaller('129')).to.equal(false)
   })
 })
 
