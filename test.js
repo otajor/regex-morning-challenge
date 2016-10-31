@@ -12,8 +12,8 @@ describe('isValidHex should', () => {
     expect(isValidHex('b0f')).to.be.ok
   })
   it('return false if given string is not valid hexadecimal', () => {
-    expect(isValidHex('obviouslyNotValid')).to.equal(false)
-    expect(isValidHex('XYZ')).to.equal(false)
+    expect(isValidHex('potato')).to.equal(false)
+    expect(isValidHex('AFZ435')).to.equal(false)
   })
 })
 
@@ -30,21 +30,6 @@ describe('isSmaller (using regex.test or string.match) should', () => {
   it('return false if string is a number greater than 55', () => {
     expect(isSmaller('56')).to.equal(false)
     expect(isSmaller('129')).to.equal(false)
-  })
-})
-
-const findProperNouns = (string) => {
-  // code here
-}
-
-describe('findProperNouns (using regex.exec or string.match) should', () => {
-  it('return a proper noun in a given string, in an array', () => {
-    const string = 'proper noun in a sentence about Paris.'
-    expect(findProperNouns(string)).to.deep.equal(['Paris'])
-  })
-  it('return several proper nouns in a given string, ignoring those following full stops', () => {
-    const string2 = 'Several words in a string. Like Berlin, Rotterdam, Founders & Coders.'
-    expect(findProperNouns(string2)).to.deep.equal(['Berlin', 'Rotterdam', 'Founders', 'Coders'])
   })
 })
 
@@ -76,6 +61,22 @@ describe('isValidTime function should', () => {
   it('return false for invalid time', () => {
     expect(isValidTime('24:01:01')).to.equal(false)
     expect(isValidTime('14:15:60')).to.equal(false)
+    expect(isValidTime('potato')).to.equal(false)
     expect(isValidTime('03:55:143')).to.equal(false)
+  })
+})
+
+const findProperNouns = (string) => {
+  // code here
+}
+
+describe('findProperNouns (using regex.exec or string.match) should', () => {
+  it('return a proper noun in a given string, in an array', () => {
+    const string = 'proper noun in a sentence about Paris.'
+    expect(findProperNouns(string)).to.deep.equal(['Paris'])
+  })
+  it('return several proper nouns in a given string, ignoring those following full stops', () => {
+    const string2 = 'Several words in a string. Like Berlin, Rotterdam, Founders & Coders.'
+    expect(findProperNouns(string2)).to.deep.equal(['Berlin', 'Rotterdam', 'Founders', 'Coders'])
   })
 })
