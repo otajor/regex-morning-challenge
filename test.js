@@ -1,31 +1,28 @@
 /* eslint-env mocha */
 const expect = require('chai').expect
 
-const isValidHex = (string) => {
-  // code here
-}
+const isValidHex = (string) => /^([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/.test(string)
 
 describe('isValidHex should', () => {
   it('return true if given string is valid hexadecimal (3 or six letters a-f or numbers)', () => {
-    expect(isValidHex('1D1f21')).to.be.ok
-    expect(isValidHex('89D387')).to.be.ok
-    expect(isValidHex('b0f')).to.be.ok
+    expect(isValidHex('1D1f21')).to.equal(true)
+    expect(isValidHex('89D387')).to.equal(true)
+    expect(isValidHex('b0f')).to.equal(true)
   })
   it('return false if given string is not valid hexadecimal', () => {
     expect(isValidHex('potato')).to.equal(false)
     expect(isValidHex('AFZ435')).to.equal(false)
+    expect(isValidHex('AF38C')).to.equal(false)
   })
 })
 
-const isSmaller = (string) => {
-  // code here
-}
+const isSmaller = (string) => /^([1-4][0-9]|5[0-5]|[0-9])$/.test(string)
 
 describe('isSmaller (using regex.test or string.match) should', () => {
   it('return true if string is a number smaller than 55', () => {
-    expect(isSmaller('3')).to.be.ok
-    expect(isSmaller('10')).to.be.ok
-    expect(isSmaller('25')).to.be.ok
+    expect(isSmaller('3')).to.equal(true)
+    expect(isSmaller('10')).to.equal(true)
+    expect(isSmaller('25')).to.equal(true)
   })
   it('return false if string is a number greater than 55', () => {
     expect(isSmaller('56')).to.equal(false)
@@ -34,7 +31,8 @@ describe('isSmaller (using regex.test or string.match) should', () => {
 })
 
 const search = (dict, string) => {
-  // code here
+  const regex = new RegExp(`^${string}`)
+  return dict.filter((string) => regex.test(string))
 }
 
 describe('search function should', () => {
@@ -48,15 +46,13 @@ describe('search function should', () => {
   })
 })
 
-const isValidTime = (string) => {
-  // code here
-}
+const isValidTime = (string) => /^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/.test(string)
 
 describe('isValidTime function should', () => {
   it('return true for valid time in xx:xx:xx format', () => {
-    expect(isValidTime('00:30:00')).to.be.ok
-    expect(isValidTime('23:00:59')).to.be.ok
-    expect(isValidTime('03:03:03')).to.be.ok
+    expect(isValidTime('00:30:00')).to.equal(true)
+    expect(isValidTime('23:00:59')).to.equal(true)
+    expect(isValidTime('03:03:03')).to.equal(true)
   })
   it('return false for invalid time', () => {
     expect(isValidTime('24:01:01')).to.equal(false)
@@ -66,8 +62,15 @@ describe('isValidTime function should', () => {
   })
 })
 
-const findProperNouns = (string) => {
-  // code here
+const findProperNouns = (string) => string.match(/[^\.]\s([A-Z][a-z]+)/g).map((x) => x.slice(2))
+const findProperNounsAlt = (string) => {
+  const regex = /[^\.]\s([A-Z][a-z]+)/g
+  let returnArr = []
+  let arr
+  while ((arr = regex.exec(string)) !== null) {
+    returnArr.push(arr[1])
+  }
+  return returnArr
 }
 
 describe('findProperNouns (using regex.exec or string.match) should', () => {
